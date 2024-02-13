@@ -21,7 +21,6 @@ while(1);
   BLE.setDeviceName("Vale Archit");
 BLE.setAdvertisedService(newService);
 newService.addCharacteristic(readChar);
-3
 newService.addCharacteristic(writeChar);
 BLE.addService(newService);
 
@@ -35,6 +34,8 @@ BLE.addService(newService);
   writeChar.writeValue(0);
   BLE.advertise();
   Serial.println("Bluetooth device active");
+  readChar.writeValue(distanceCm);
+
 }
 
 void loop() {
